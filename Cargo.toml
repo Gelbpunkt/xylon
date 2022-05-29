@@ -1,0 +1,28 @@
+[package]
+name = "xylon"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+atoi = "1"
+bytes = "1"
+dashmap = { version = "5.3", default-features = false }
+env_logger = { version = "0.9", default-features = false, features = ["humantime"] }
+futures-util = { version = "0.3", default-features = false, features = ["sink", "std"] }
+itoa = "1"
+libc = "0.2"
+log = "0.4"
+memchr = "2.5"
+tokio = { version = "1", default-features = false, features = ["net", "rt-multi-thread", "macros"] }
+tokio-util = { version = "0.7", default-features = false, features = ["codec", "time"] }
+
+[profile.release]
+codegen-units = 1
+debug = false
+incremental = false
+lto = true
+opt-level = 3
+panic = "abort"
+debug-assertions = false
